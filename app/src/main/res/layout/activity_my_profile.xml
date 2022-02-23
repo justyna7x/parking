@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyProfile">
+    <ScrollView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/homePage"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:drawableTop="@drawable/ic_page_home"
+                    android:text="Home Page"
+                    android:background="@drawable/angular_button"
+                    android:layout_weight="1"
+                    />
+
+                <Button
+                    android:id="@+id/myProfile"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:drawableTop="@drawable/ic_profile"
+                    android:text="My Profile"
+                    android:background="@drawable/angular_button"
+                    android:layout_weight="1"
+                    />
+
+                <Button
+                    android:id="@+id/pay"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/angular_button"
+                    android:drawableTop="@drawable/ic_pay"
+                    android:text="Pay for space" />
+
+                <Button
+                    android:text="Your tickets"
+                    android:drawableTop="@drawable/ic_past_transactions"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/past_tickets"
+                    android:background="@drawable/angular_button"
+                    android:layout_weight="1"
+                    />
+                <Button
+                    android:text="Sign out"
+                    android:drawableTop="@drawable/ic_logout"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/signOut"
+                    android:background="@drawable/angular_button"
+                    android:layout_weight="1"
+                    />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+    <TextView
+        android:id="@+id/greeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="15dp"
+        />
+    <TextView
+        android:id="@+id/emailAddressTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email address:"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/greeting"
+        app:layout_constraintLeft_toLeftOf="@id/greeting"
+        android:layout_marginTop="20dp"
+
+        />
+    <TextView
+        android:id="@+id/emailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/emailAddressTitle"
+        app:layout_constraintLeft_toLeftOf="@id/emailAddressTitle"
+        android:layout_marginLeft="30dp"
+        android:textSize="25sp"
+        />
+
+    <TextView
+        android:id="@+id/fullNameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full Name:"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/emailAddress"
+        app:layout_constraintLeft_toLeftOf="@id/greeting"
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"
+        />
+        <ImageButton
+            android:id="@+id/editName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintRight_toLeftOf="@id/fullName"
+            app:layout_constraintTop_toBottomOf="@id/fullNameTitle"
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="-5dp"
+            />
+    <TextView
+        android:id="@+id/fullName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/fullNameTitle"
+        app:layout_constraintLeft_toLeftOf="@id/emailAddressTitle"
+        android:layout_marginLeft="30dp"
+        android:textSize="25sp"
+        />
+    <TextView
+        android:id="@+id/regTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registration Plate:"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/fullName"
+        app:layout_constraintLeft_toLeftOf="@id/fullNameTitle"
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"
+        />
+    <ImageButton
+        android:id="@+id/editReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintRight_toLeftOf="@id/reg"
+        app:layout_constraintTop_toBottomOf="@id/regTitle"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="-5dp"
+        />
+    <TextView
+        android:id="@+id/reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/regTitle"
+        app:layout_constraintLeft_toLeftOf="@id/fullNameTitle"
+        android:layout_marginLeft="30dp"
+        android:textSize="25sp"
+        />
+    <TextView
+        android:id="@+id/balanceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your balance:  £"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/reg"
+        app:layout_constraintLeft_toLeftOf="@id/fullNameTitle"
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"
+        />
+    <TextView
+        android:id="@+id/balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/regTitle"
+        app:layout_constraintLeft_toLeftOf="@id/fullNameTitle"
+        android:layout_marginLeft="30dp"
+        android:textSize="25sp"
+        />
+    <Button
+        android:id="@+id/edit_profile"
+        android:layout_width="@dimen/browser_actions_context_menu_max_width"
+        android:layout_height="70dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#005961"
+        android:text="Edit Profile"
+        android:textColor="#ffffff"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/balance"
+        />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

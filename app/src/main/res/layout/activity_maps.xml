@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".MapsActivity"
+    >
+
+<fragment
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/map"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentStart="true"
+    android:layout_marginTop="100dp"
+    ></fragment>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/homePage"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:drawableTop="@drawable/ic_page_home"
+                    android:text="Home Page"
+                    android:background="@drawable/angular_button"
+                    android:layout_weight="1"
+                    />
+                <Button
+                    android:id="@+id/myProfile"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:drawableTop="@drawable/ic_profile"
+                    android:text="My Profile"
+                    android:background="@drawable/angular_button"
+                    android:layout_weight="1"
+                    />
+
+                <Button
+                    android:id="@+id/pay"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/angular_button"
+                    android:drawableTop="@drawable/ic_pay"
+                    android:text="Pay for space" />
+
+                <Button
+                    android:text="Your tickets"
+                    android:drawableTop="@drawable/ic_past_transactions"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/past_tickets"
+                    android:background="@drawable/angular_button"
+                    android:layout_weight="1"
+                    />
+                <Button
+                    android:text="Sign out"
+                    android:drawableTop="@drawable/ic_logout"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/signOut"
+                    android:background="@drawable/angular_button"
+                    android:layout_weight="1"
+                    />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+</RelativeLayout>
