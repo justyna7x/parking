@@ -83,7 +83,7 @@
     <Button
         android:id="@+id/settings"
         android:text="Location Settings"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:layout_width="@dimen/browser_actions_context_menu_max_width"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"/>

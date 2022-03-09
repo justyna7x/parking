@@ -19,7 +19,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Button homePage;
     private GoogleMap mMap;
     private Button logout;
-    private Button myProfile;
+    private Button myProfile, settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        settings = (Button) findViewById(R.id.settings);
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MapsActivity.this, MapsSettings.class));
+            }
+        });
 
         logout = (Button) findViewById(R.id.signOut);
 

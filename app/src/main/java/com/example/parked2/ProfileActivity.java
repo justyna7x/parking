@@ -11,15 +11,16 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private Button homePage;
-    private Button logout;
-    private Button myProfile;
-    private Button mapsa;
+    private Button homePage, logout, myProfile, mapsa;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
 
 
 
