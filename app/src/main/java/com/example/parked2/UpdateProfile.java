@@ -28,8 +28,7 @@ public class UpdateProfile extends AppCompatActivity {
 
     private ActivityUpdateProfileBinding binding;
     private Button homePage,logout, myProfile;
-    //private EditText etName, etRegPlate, etPassword;
-    //private Button updateBtn;
+
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
