@@ -138,8 +138,28 @@
         android:layout_marginLeft="0dp"
         android:textSize="15sp"
         />
+    <TextView
+        android:id="@+id/Titlemypinpoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Waypoints:"
+
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_labelsensor"
+        app:layout_constraintLeft_toLeftOf="@id/tv_labelsensor"
 
 
+        />
+
+
+    <TextView
+        android:id="@+id/mypinpoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/Titlemypinpoints"
+        app:layout_constraintTop_toTopOf="@+id/Titlemypinpoints" />
 
     <TextView
         android:id="@+id/tv_labelsensor"
@@ -209,5 +229,25 @@
         app:layout_constraintTop_toBottomOf="@+id/address"
         tools:layout_editor_absoluteX="1dp"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/newPinpoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New WayPoint"
+        app:layout_constraintTop_toBottomOf="@id/mypinpoints"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="633dp" />
+
+    <Button
+        android:id="@+id/listOfWaypoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List of Waypoints"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mypinpoints"
+        app:layout_constraintRight_toRightOf="@id/newPinpoint"
+        tools:layout_editor_absoluteY="633dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -13,6 +14,7 @@ import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,14 +34,19 @@ public class MapsSettings extends AppCompatActivity {
     public static final int FAST_UPDATE_INTERVAL = 5;
     private static final int PERMISSIONS_FINE_LOCATION = 99;
 
-    TextView latitude, longitude, altitude, accuracy, speed, address, tv_sensor, tv_updates;
+    TextView latitude, longitude, altitude, accuracy, speed, address, tv_sensor, tv_updates, tv_pinpointcounter;
     Switch sw_locationupdates, sw_gps;
+    Button btn_newWaypoint, btn_showWayPointList;
 
     //location services provided by Google
     FusedLocationProviderClient fusedLocationProviderClient;
 
     boolean updateOn = false;
 
+    //current location
+    Location currentLocation;
+    //list of saved locations
+    List<Location> savedLocations;
     //location request
     LocationRequest locationRequest;
 
@@ -61,6 +68,9 @@ public class MapsSettings extends AppCompatActivity {
         tv_updates = findViewById(R.id.tv_updates);
         sw_gps = findViewById(R.id.sw_gps);
         sw_locationupdates = findViewById(R.id.sw_locationsupdates);
+        btn_newWaypoint = findViewById(R.id.newPinpoint);
+        btn_showWayPointList = findViewById(R.id.listOfWaypoints);
+        tv_pinpointcounter = findViewById(R.id.mypinpoints);
 
         //properties for location request
         locationRequest = new LocationRequest();
@@ -82,6 +92,21 @@ public class MapsSettings extends AppCompatActivity {
                 updateUIValues(locationResult.getLastLocation());
             }
         };
+
+        btn_newWaypoint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                //add to list
+                ListOfPlaces listOfPlaces = (ListOfPlaces)getApplicationContext();
+                savedLocations = listOfPlaces.getMyLocations();
+                savedLocations.add(currentLocation);
+
+            }
+        });
+
+
 
         sw_gps.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,6 +188,7 @@ public class MapsSettings extends AppCompatActivity {
         //update the UI - set all properties in the view
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsSettings.this);
+
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED){
             //user provided the permission
             fusedLocationProviderClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
@@ -170,6 +196,8 @@ public class MapsSettings extends AppCompatActivity {
                 public void onSuccess(Location location) {
                    //we got permission. values of location to the UI
                     updateUIValues(location);
+
+                    currentLocation = location;
                 }
             });
         }
@@ -209,6 +237,11 @@ public class MapsSettings extends AppCompatActivity {
         catch (Exception e){
             address.setText("Unable to get street address");
         }
+        ListOfPlaces listOfPlaces = (ListOfPlaces)getApplicationContext();
+        savedLocations = listOfPlaces.getMyLocations();
+
+        //show number of waypoints saved
+        tv_pinpointcounter.setText(Integer.toString(savedLocations.size()));
     }
 
 }
