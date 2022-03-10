@@ -27,6 +27,7 @@
         app:layout_constraintLeft_toLeftOf="@id/latitude_title"
         android:layout_marginLeft="30dp"
         android:textSize="15sp"
+        android:text="0.00"
         />
 
     <TextView
@@ -48,6 +49,7 @@
         app:layout_constraintLeft_toLeftOf="@id/latitude_title"
         android:layout_marginLeft="30dp"
         android:textSize="15sp"
+        android:text="0.00"
         />
 
     <TextView
@@ -70,6 +72,7 @@
         app:layout_constraintLeft_toLeftOf="@id/latitude_title"
         android:layout_marginLeft="30dp"
         android:textSize="15sp"
+        android:text="0.00"
         />
     <TextView
         android:id="@+id/accuracyTitle"
@@ -91,6 +94,7 @@
         app:layout_constraintLeft_toLeftOf="@id/latitude_title"
         android:layout_marginLeft="30dp"
         android:textSize="15sp"
+        android:text="0.00"
         />
     <TextView
         android:id="@+id/speedTitle"
@@ -111,6 +115,7 @@
         app:layout_constraintLeft_toLeftOf="@id/latitude_title"
         android:layout_marginLeft="30dp"
         android:textSize="15sp"
+        android:text="0.00"
         />
     <TextView
         android:id="@+id/addressTitle"
@@ -130,7 +135,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/addressTitle"
         app:layout_constraintLeft_toLeftOf="@id/latitude_title"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="0dp"
         android:textSize="15sp"
         />
 
