@@ -6,17 +6,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileActivity extends AppCompatActivity {
 
     private Button homePage, logout, myProfile, mapsa;
+    ExpandableListView expandableTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        expandableTextView=findViewById(R.id.eTV);
+        ExpandableTextViewAdapter adapter = new ExpandableTextViewAdapter(ProfileActivity.this);
+        expandableTextView.setAdapter(adapter);
 
         homePage = (Button) findViewById(R.id.homePage);
 

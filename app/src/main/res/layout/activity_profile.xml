@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_pic2"
     tools:context=".ProfileActivity"
     >
 
     <ScrollView
+        android:id="@+id/scrolla"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <HorizontalScrollView
@@ -70,6 +70,16 @@
             </LinearLayout>
         </HorizontalScrollView>
     </ScrollView>
+
+    <ExpandableListView
+        android:id="@+id/eTV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        android:padding="5dp" />
 
     <Button
         android:id="@+id/view_zone"
