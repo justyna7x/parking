@@ -3,23 +3,30 @@ package com.example.parked2;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     private Button homePage;
     private GoogleMap mMap;
     private Button logout;
     private Button myProfile, settings;
+
+    List<Location> savedLocations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        ListOfPlaces listOfPlaces = (ListOfPlaces)getApplicationContext();
+        savedLocations = listOfPlaces.getMyLocations();
 
         settings = (Button) findViewById(R.id.settings);
 
@@ -86,11 +96,38 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        LatLng Leicester = new LatLng(52, -1);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.addMarker(new MarkerOptions().position(Leicester).title("Marker in Leicester"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(Leicester));
+        // Add a marker in Leicester Sydney and move the camera
+
+        LatLng leicester = new LatLng(52, -1);
+
+       /* mMap.addMarker(new MarkerOptions().position(Leicester).title("Marker in Leicester"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(Leicester));*/
+
+        LatLng lastLocationPlaced = leicester;
+        for(Location location: savedLocations){
+            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(latLng);
+            markerOptions.title("Lat"+ location.getLatitude()+ "Lon"+ location.getLongitude());
+            mMap.addMarker(markerOptions);
+            lastLocationPlaced = latLng;
+
+        }
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(lastLocationPlaced, 12.0f));
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                // counter
+                Integer clicks = (Integer) marker.getTag();
+                if(clicks == null){
+                    clicks = 0;
+                }
+                clicks++;
+                        marker.setTag(clicks);
+                Toast.makeText(MapsActivity.this, "Marker" + marker.getTitle() + "was clicked"+ marker.getTag(), Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
     }
 }

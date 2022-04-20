@@ -234,7 +234,7 @@
         android:id="@+id/newPinpoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New WayPoint"
+        android:text="Save location"
         app:layout_constraintTop_toBottomOf="@id/mypinpoints"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -244,10 +244,19 @@
         android:id="@+id/listOfWaypoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="List of Waypoints"
+        android:text="List of saved locations"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mypinpoints"
         app:layout_constraintRight_toRightOf="@id/newPinpoint"
         tools:layout_editor_absoluteY="633dp" />
+    <Button
+        android:id="@+id/viewMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Map"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,16 +13,10 @@ public class ProfileActivity extends AppCompatActivity {
 
     private Button homePage, logout, myProfile, mapsa;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
-
-
 
         homePage = (Button) findViewById(R.id.homePage);
 
@@ -56,13 +50,13 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        mapsa = (Button) findViewById(R.id.view_map);
+        mapsa = (Button) findViewById(R.id.view_zone);
 
         mapsa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(ProfileActivity.this, MapsActivity.class));
+                startActivity(new Intent(ProfileActivity.this, MapsSettings.class));
 
             }
         });

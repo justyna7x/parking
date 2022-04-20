@@ -72,12 +72,14 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/view_map"
-        android:text="View Map"
-        android:textSize="40dp"
+        android:id="@+id/view_zone"
+        android:text="View your zone"
+        android:textSize="35dp"
         android:layout_width="@dimen/browser_actions_context_menu_max_width"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"/>
+
+
 
 
 </RelativeLayout>

@@ -36,7 +36,7 @@ public class MapsSettings extends AppCompatActivity {
 
     TextView latitude, longitude, altitude, accuracy, speed, address, tv_sensor, tv_updates, tv_pinpointcounter;
     Switch sw_locationupdates, sw_gps;
-    Button btn_newWaypoint, btn_showWayPointList;
+    Button btn_newWaypoint, btn_showWayPointList, viewMap;
 
     //location services provided by Google
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -71,6 +71,7 @@ public class MapsSettings extends AppCompatActivity {
         btn_newWaypoint = findViewById(R.id.newPinpoint);
         btn_showWayPointList = findViewById(R.id.listOfWaypoints);
         tv_pinpointcounter = findViewById(R.id.mypinpoints);
+        viewMap =findViewById(R.id.viewMap);
 
         //properties for location request
         locationRequest = new LocationRequest();
@@ -96,8 +97,6 @@ public class MapsSettings extends AppCompatActivity {
         btn_newWaypoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 //add to list
                 ListOfPlaces listOfPlaces = (ListOfPlaces)getApplicationContext();
                 savedLocations = listOfPlaces.getMyLocations();
@@ -106,6 +105,22 @@ public class MapsSettings extends AppCompatActivity {
             }
         });
 
+        btn_showWayPointList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MapsSettings.this, ShowSavedLocations.class);
+                startActivity(i);
+
+            }
+        });
+        viewMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MapsSettings.this, MapsActivity.class);
+                startActivity(i);
+
+            }
+        });
 
 
         sw_gps.setOnClickListener(new View.OnClickListener() {
