@@ -308,9 +308,43 @@ public class MapsSettings extends AppCompatActivity {
             address.setText(addresses.get(0).getAddressLine(0));
             String z=addresses.get(0).getThoroughfare();
             String a = "LE3 0JY";
+            if(zone_a.contains(z)){
+                zone.setText("Zone A");
+            }
+            if(zone_b.contains(z)){
+                zone.setText("Zone B");
+            }
+            if(zone_c.contains(z)){
+                zone.setText("Zone C");
+            }
+            if(zone_d.contains(z)){
+                zone.setText("Zone D");
+            }
+            if(zone_e.contains(z)){
+                zone.setText("Zone E");
+            }
             if(zone_f.contains(z)){
                 zone.setText("Zone F");
             }
+            if(zone_g.contains(z)){
+                zone.setText("Zone G");
+            }
+            if(zone_h.contains(z)){
+                zone.setText("Zone H");
+            }
+            if(zone_j.contains(z)){
+                zone.setText("Zone J");
+            }
+            if(zone_k.contains(z)){
+                zone.setText("Zone K");
+            }
+            if(zone_l.contains(z)){
+                zone.setText("Zone L");
+            }
+            else{
+                zone.setText("Zone unavailable");
+            }
+
 
         }
         catch (Exception e){
