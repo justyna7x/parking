@@ -69,8 +69,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             }
         });
-
-
         myProfile = (Button) findViewById(R.id.myProfile);
 
         myProfile.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +94,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Leicester Sydney and move the camera
+        // Add a marker in Leicester and move the camera
 
         LatLng leicester = new LatLng(52.635669, -1.133814);
 
@@ -113,7 +111,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             lastLocationPlaced = latLng;
 
         }
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(lastLocationPlaced, 12.0f));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(lastLocationPlaced, 16.0f));
 
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override

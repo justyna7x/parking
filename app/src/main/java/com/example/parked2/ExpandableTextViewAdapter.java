@@ -15,8 +15,7 @@ public class ExpandableTextViewAdapter extends BaseExpandableListAdapter {
 
     String[] faqs = {
             "How to pay for a parking space?",
-            "How to check your zone and use the map?",
-            "Nie wiem xd"
+            "How to check your zone and use the map?"
     };
 
     String[][]anwser={
@@ -26,8 +25,7 @@ public class ExpandableTextViewAdapter extends BaseExpandableListAdapter {
                     "4.\tTap on “Pay” and you can leave your car parked!\n"},
             {"1.\tTo check your zone switch on the location service on your phone and click the button down below in the app “View your zone”\n" +
                     "2.\tIt will show you the street and the zone you are currently located in. To view the map, tap on “View map”.\n" +
-                    "3.\tIf you would like to save the last location you have been (parked your car), click the button “Save your location”. It will add a pinpoint to the map, and you do not need to worry about remembering where exactly you have parked your car.\n"},
-            {"Hehehe"}
+                    "3.\tIf you would like to save the last location you have been (parked your car), click the button “Save your location”. It will add a pinpoint to the map, and you do not need to worry about remembering where exactly you have parked your car.\n"}
     };
 
     public ExpandableTextViewAdapter(Context context) {

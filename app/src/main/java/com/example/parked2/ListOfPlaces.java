@@ -23,6 +23,7 @@ public class ListOfPlaces extends Application {
     }
     public void onCreate(){
         super.onCreate();
+
         singleton=this;
 
         myLocations = new ArrayList<>();

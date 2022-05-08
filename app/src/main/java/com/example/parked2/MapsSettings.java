@@ -26,6 +26,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class MapsSettings extends AppCompatActivity {
@@ -34,7 +35,7 @@ public class MapsSettings extends AppCompatActivity {
     public static final int FAST_UPDATE_INTERVAL = 5;
     private static final int PERMISSIONS_FINE_LOCATION = 99;
 
-    TextView latitude, longitude, altitude, accuracy, speed, address, tv_sensor, tv_updates, tv_pinpointcounter;
+    TextView latitude, longitude, altitude, accuracy, speed, address, tv_sensor, tv_updates, tv_pinpointcounter, zone;
     Switch sw_locationupdates, sw_gps;
     Button btn_newWaypoint, btn_showWayPointList, viewMap;
 
@@ -51,8 +52,45 @@ public class MapsSettings extends AppCompatActivity {
     LocationRequest locationRequest;
 
     LocationCallback locationCallBack;
-
-
+    //Zone A
+    List<String> zone_a =Arrays.asList("Lancaster Road","Lower Hasting Street","New Bridge Street","Newtown Street","Princess Road West",
+            "Rawson Street","Regent Road","Tower Street","Turner Street","Upper King Street","Welford Road","West Street");
+    //Zone B
+    List<String> zone_b =Arrays.asList("Aylestone Road","Burnmoor Street","Buttermere Street","Coniston Avenue","Filbert Street","Filbert Street East",
+            "Hazel Street","Sawday Street","Walnut Street");
+    //Zone C
+    List<String> zone_c =Arrays.asList("Coriander Road","Mint Road","Sage Road","Tarragon Road","Thyme Close","Western Boulevard");
+    //Zone D
+    List<String> zone_d =Arrays.asList("Clarendon Street","Grasmere Street","Jarrom Street","Rydal Street","Thirlmere Street","Ullswater Street","Windermere Street");
+    //Zone E
+    List<String> zone_e =Arrays.asList("Abingdon Road","Abingdon Walk","Andover Street","Avon Street","Bartholomew Street","Beckingham Road","Briton Street"
+            ,"Brookhouse Avenue","Brookhouse Street","Cedar Road","Chaucer Street","Churchill Street", "College Avenue","College Street","Conduit Street"
+            ,"Conifer Close","Connaught Street","East Park Road","Evington Footway","Evington Place","Evington Road","Glebe Street","Gordon Avenue",
+            "Gotham Street","Guilford Street","Hamilton Street","Herschell Street", "Highfield Street","Hobart Street","Lincoln Street",
+            "London Road","Mandora Lane","Mayfield Road","Medway Street","Mere Road","Mill Hill Lane","Mundella Street","Myrtle Road",
+            "Onslow Street","Oxford Avenue","Prebend Street","Ripon Street","Saxby Street","Severn Street","Seymour Street","Sparkenhoe Street",
+            "St Albans Road","St James Road","St James Terrace","St Peters Road","St Stephens Road","Tennyson Street","Tichborne Street",
+            "Upper Tichborne Street","Victoria Avenue", "Victoria Terrace","Welland Street","Woodbine Avenue");
+    //Zone F
+    List<String> zone_f = Arrays.asList("Harrow Road", "Ashleigh Road", "Barclay Street", "Beaconsfield Road", "Bede Street", "Braunstone Gate","Brazil Street",
+            "Browning Street", "Bruce Street", "Cambridge Street", "Celt Street", "Cranmer Street", "Eastleigh Road", "Equity Road","Fosse Road South",
+            "Gaul Street", "Harrow Road", "Hinckley Road", "Ivy Road", "Latimer Street", "Livingstone Street", "Luther Street", "Narborough Road",
+            "Noel Street", "Norman Street", "Paton Street", "Ridley Street", "Roman Street", "Ruding Road", "Ruding Terrace", "Saxon Street","Westleigh Road",
+            "Shaftesbury Road","Sheffield Street","Stuart Street","Sykefield Avenue","Tyndale Street","Upperton Road","Westcotes Drive","Western Road", "Wilberforce Road");
+    //Zone G
+    List<String> zone_g =Arrays.asList("Alderton Close");
+    //Zone H
+    List<String> zone_h =Arrays.asList("Coleman Road");
+    //Zone J
+    List<String> zone_j =Arrays.asList("Ariane Place", "Beagle Close", "Discovery Road", "Exploration Drive");
+    //Zone K
+    List<String> zone_k =Arrays.asList("1 The Avenue","Cecilia Road","Central Avenue","Clarendon Park Road","Cradock Road","East Avenue",
+            "Edward Road","Howard Road","Montague Road","North Avenue","Orlando Road","Oxford Road","Queens Road","Seymour Road","St Leonards Road",
+            "West Avenue","Adderley Road","Ashford Road","Avenue Rd Extension","Brentwood Road","Brookland Road","Bulwer Road","Clarendon Park Road",
+            "Cross Road","Fleetwood Road","Fleetwood Court","Hartopp Road","Howard Road","Keble Road","Leopold Road","Lorne Road","Lytham Rd",
+            "Lytton Rd","Portland Rd","Queens Road","St Leonards Road","Springfield Rd","Thurlow Rd","Victoria Park Road","Westbury Road","University Rd");
+    //Zone L
+    List<String> zone_l =Arrays.asList("Leicester Street","Nottingham Road", "Roseberry Street");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,12 +102,13 @@ public class MapsSettings extends AppCompatActivity {
         altitude = findViewById(R.id.altitude);
         speed = findViewById(R.id.speed);
         address = findViewById(R.id.address);
+        zone = findViewById(R.id.zone);
         tv_sensor = findViewById(R.id.tv_sensor);
         tv_updates = findViewById(R.id.tv_updates);
         sw_gps = findViewById(R.id.sw_gps);
         sw_locationupdates = findViewById(R.id.sw_locationsupdates);
         btn_newWaypoint = findViewById(R.id.newPinpoint);
-        btn_showWayPointList = findViewById(R.id.listOfWaypoints);
+       // btn_showWayPointList = findViewById(R.id.listOfWaypoints);
         tv_pinpointcounter = findViewById(R.id.mypinpoints);
         viewMap =findViewById(R.id.viewMap);
 
@@ -105,14 +144,14 @@ public class MapsSettings extends AppCompatActivity {
             }
         });
 
-        btn_showWayPointList.setOnClickListener(new View.OnClickListener() {
+       /* btn_showWayPointList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MapsSettings.this, ShowSavedLocations.class);
                 startActivity(i);
 
             }
-        });
+        });*/
         viewMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,6 +198,7 @@ public class MapsSettings extends AppCompatActivity {
         altitude.setText("Not tracking location");
         address.setText("Not tracking location");
         accuracy.setText("Not tracking location");
+        zone.setText("Not tracking location");
 
         fusedLocationProviderClient.removeLocationUpdates(locationCallBack);
     }
@@ -231,6 +271,24 @@ public class MapsSettings extends AppCompatActivity {
         longitude.setText(String.valueOf(location.getLongitude()));
         accuracy.setText(String.valueOf(location.getAccuracy()));
 
+        /*if(location.getLatitude()>52.622294 && location.getLatitude()<52.622443 && location.getLongitude()>-1.122535
+                && location.getLongitude()<-1.121541) {
+            zone.setText("Zone A – Holy Trinity");
+        }
+
+        if(location.getLatitude()<=52.622294 && location.getLatitude()>52.622414 && location.getLongitude()>-1.122535
+                && location.getLongitude()<-1.121541) {
+            zone.setText("Zone B – Hazel");
+        }
+        if(location.getLatitude()<=52.630654 && location.getLatitude()>52.622294 && location.getLongitude()>-1.122535
+                && location.getLongitude()<-1.121541) {
+            zone.setText("Zone C – Bede Island");
+        }
+        if(location.getLatitude()<=52.622294 && location.getLatitude()>52.622414 && location.getLongitude()>-1.122535
+                && location.getLongitude()<-1.121541) {
+            zone.setText("Zone D – Riverside");
+        }*/
+
         if (location.hasAltitude()) {
             altitude.setText(String.valueOf(location.getAltitude()));
         } else {
@@ -245,13 +303,20 @@ public class MapsSettings extends AppCompatActivity {
 
         Geocoder geocoder = new Geocoder(MapsSettings.this);
 
-        try{
+        try {
             List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
             address.setText(addresses.get(0).getAddressLine(0));
+            String z=addresses.get(0).getThoroughfare();
+            String a = "LE3 0JY";
+            if(zone_f.contains(z)){
+                zone.setText("Zone F");
+            }
+
         }
         catch (Exception e){
             address.setText("Unable to get street address");
         }
+
         ListOfPlaces listOfPlaces = (ListOfPlaces)getApplicationContext();
         savedLocations = listOfPlaces.getMyLocations();
 
