@@ -34,12 +34,21 @@ public class MyProfile extends AppCompatActivity {
     private String userID;
     private ImageButton updateName, updateReg;
     private ActivityMyProfileBinding binding;
+    private Button purchaseTicket;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
+
+        purchaseTicket = (Button) findViewById(R.id.pay);
+        purchaseTicket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MyProfile.this, PurchaseActivity.class));
+            }
+        });
 
         updateName = (ImageButton) findViewById(R.id.editName);
 
@@ -99,6 +108,7 @@ public class MyProfile extends AppCompatActivity {
         final TextView fullNameTextView = (TextView) findViewById(R.id.fullName);
         final TextView emailTextView = (TextView) findViewById(R.id.emailAddress);
         final TextView regTextView = (TextView) findViewById(R.id.reg);
+        final TextView balance1 = (TextView) findViewById(R.id.balanceText);
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -109,11 +119,14 @@ public class MyProfile extends AppCompatActivity {
                     String fullName = userProfile.fullName;
                     String email = userProfile.email;
                     String reg = userProfile.regPlate;
+                    float balance2 = userProfile.balance;
+
 
                     greetingTextView.setText("Welcome, " + fullName+"!");
                     fullNameTextView.setText(fullName);
                     emailTextView.setText(email);
                     regTextView.setText(reg);
+                    balance1.setText(String.valueOf(balance2));
                 }
 
             }

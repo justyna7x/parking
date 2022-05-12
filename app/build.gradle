@@ -39,6 +39,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.google.android.gms:play-services-auth:20.2.0'
     def lifecycle_version = "2.3.0"
     def nav_version = "2.3.4"
     def recyclerview_version = "1.1.0"

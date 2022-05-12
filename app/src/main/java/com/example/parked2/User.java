@@ -12,5 +12,6 @@ public class User {
         this.regPlate = regPlate;
         this.email = email;
         this.balance = balance;
+
     }
 }

@@ -5,5 +5,113 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PurchaseActivity">
+    <ScrollView
+        android:id="@+id/scrollbarr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/homePage"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:drawableTop="@drawable/ic_page_home"
+                    android:text="Home Page"
+                    android:background="@drawable/angular_button"
+                    android:layout_weight="1"
+                    />
+
+                <Button
+                    android:id="@+id/myProfile"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:drawableTop="@drawable/ic_profile"
+                    android:text="My Profile"
+                    android:background="@drawable/angular_button"
+                    android:layout_weight="1"
+                    />
+
+                <Button
+                    android:id="@+id/pay"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/angular_button"
+                    android:drawableTop="@drawable/ic_pay"
+                    android:text="Pay for space" />
+
+                <Button
+                    android:text="Your tickets"
+                    android:drawableTop="@drawable/ic_past_transactions"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/past_tickets"
+                    android:background="@drawable/angular_button"
+                    android:layout_weight="1"
+                    />
+                <Button
+                    android:text="Sign out"
+                    android:drawableTop="@drawable/ic_logout"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/signOut"
+                    android:background="@drawable/angular_button"
+                    android:layout_weight="1"
+                    />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+
+
+    <EditText
+        android:id="@+id/zone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="Zone (from A to L)"
+        android:inputType="textEmailAddress"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollbarr"
+        />
+    <EditText
+        android:id="@+id/duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Duration (from 1hour to 6 hours)"
+        android:inputType="textPassword"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/zone"
+        />
+    <Button
+        android:id="@+id/buy"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#005961"
+        android:text="BUY"
+        android:textColor="#ffffff"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/duration"
+        />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

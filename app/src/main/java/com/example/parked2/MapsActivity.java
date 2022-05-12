@@ -21,10 +21,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-    private Button homePage;
+    private Button homePage, myProfile, settings, purchaseTicket;
     private GoogleMap mMap;
     private Button logout;
-    private Button myProfile, settings;
+
 
     List<Location> savedLocations;
 
@@ -39,6 +39,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         ListOfPlaces listOfPlaces = (ListOfPlaces)getApplicationContext();
         savedLocations = listOfPlaces.getMyLocations();
+
+        purchaseTicket = (Button) findViewById(R.id.pay);
+        purchaseTicket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MapsActivity.this, PurchaseActivity.class));
+            }
+        });
 
         settings = (Button) findViewById(R.id.settings);
 
@@ -90,6 +98,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;

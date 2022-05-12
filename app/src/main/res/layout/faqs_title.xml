@@ -15,9 +15,9 @@
         android:minHeight="40dp"
         android:text="How to pay for a parking space?"
         android:textColor="@color/white"
-        android:textSize="18dp"
-
-        android:gravity="center"
+        android:textSize="15dp"
+        android:paddingTop="8dp"
+        android:gravity="left"
         android:background="#005961"
 
         />

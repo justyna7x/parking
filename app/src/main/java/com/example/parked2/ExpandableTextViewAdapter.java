@@ -21,7 +21,7 @@ public class ExpandableTextViewAdapter extends BaseExpandableListAdapter {
     String[][]anwser={
             {"1.\tOn the menu above scroll left to find the button “Pay for space”. Tap on it.\n" +
                     "2.\tPlease select the zone you are going to park your car in (if you are unsure which zone are you in, please check the map which you can find below)\n" +
-                    "3.\tSelect the amount of time you want to purchase the ticket. Remember to only leave your car in the spaces that are marked with the sign “Pay at the machine”.\n" +
+                    "3.\tSelect the amount of time you want to purchase the ticket for. Remember to only leave your car in the spaces that are marked with the sign “Pay at the machine”.\n" +
                     "4.\tTap on “Pay” and you can leave your car parked!\n"},
             {"1.\tTo check your zone switch on the location service on your phone and click the button down below in the app “View your zone”\n" +
                     "2.\tIt will show you the street and the zone you are currently located in. To view the map, tap on “View map”.\n" +

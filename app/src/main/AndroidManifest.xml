@@ -18,7 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Parked2">
-        <activity android:name=".ShowSavedLocations"></activity>
+        <activity android:name=".ShowSavedLocations" />
         <activity android:name=".MapsSettings" />
         <activity android:name=".UpdateProfile" />
         <activity android:name=".PurchaseActivity" />

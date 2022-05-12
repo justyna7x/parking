@@ -311,37 +311,37 @@ public class MapsSettings extends AppCompatActivity {
             if(zone_a.contains(z)){
                 zone.setText("Zone A");
             }
-            if(zone_b.contains(z)){
+            else if(zone_b.contains(z)){
                 zone.setText("Zone B");
             }
-            if(zone_c.contains(z)){
+            else if(zone_c.contains(z)){
                 zone.setText("Zone C");
             }
-            if(zone_d.contains(z)){
+            else if(zone_d.contains(z)){
                 zone.setText("Zone D");
             }
-            if(zone_e.contains(z)){
+            else if(zone_e.contains(z)){
                 zone.setText("Zone E");
             }
-            if(zone_f.contains(z)){
+            else if(zone_f.contains(z)){
                 zone.setText("Zone F");
             }
-            if(zone_g.contains(z)){
+            else if(zone_g.contains(z)){
                 zone.setText("Zone G");
             }
-            if(zone_h.contains(z)){
+            else if(zone_h.contains(z)){
                 zone.setText("Zone H");
             }
-            if(zone_j.contains(z)){
+            else if(zone_j.contains(z)){
                 zone.setText("Zone J");
             }
-            if(zone_k.contains(z)){
+            else if(zone_k.contains(z)){
                 zone.setText("Zone K");
             }
-            if(zone_l.contains(z)){
+            else if(zone_l.contains(z)){
                 zone.setText("Zone L");
             }
-            else{
+            else {
                 zone.setText("Zone unavailable");
             }
 

@@ -37,7 +37,7 @@
         app:layout_constraintRight_toRightOf="parent" />
     <EditText
         android:id="@+id/email"
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:ems="10"
@@ -50,7 +50,7 @@
         />
     <EditText
         android:id="@+id/password"
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:ems="10"
@@ -63,7 +63,7 @@
         />
     <Button
         android:id="@+id/signIn"
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#005961"
@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@id/signIn"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="25dp"
-        android:layout_marginLeft="50dp"/>
+        android:layout_marginLeft="20dp"/>
     <TextView
         android:id="@+id/register"
         android:layout_width="wrap_content"
@@ -108,6 +108,15 @@
         android:shadowRadius="1.6"
         android:textAllCaps="true"
         android:textColor="@android:color/white"/>
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/googleSignInbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/signIn"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+
+        />
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleLarge"

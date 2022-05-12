@@ -173,10 +173,10 @@
         android:textSize="25sp"
         />
     <TextView
-        android:id="@+id/balance"
+        android:id="@+id/balanceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/regTitle"
+        app:layout_constraintTop_toBottomOf="@id/balanceTitle"
         app:layout_constraintLeft_toLeftOf="@id/fullNameTitle"
         android:layout_marginLeft="30dp"
         android:textSize="25sp"
@@ -193,7 +193,7 @@
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/balance"
+        app:layout_constraintTop_toBottomOf="@id/balanceText"
         />
 
 

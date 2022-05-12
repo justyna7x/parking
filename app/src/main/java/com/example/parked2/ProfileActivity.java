@@ -14,6 +14,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private Button homePage, logout, myProfile, mapsa;
     ExpandableListView expandableTextView;
+    private Button purchaseTicket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,13 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(ProfileActivity.this, ProfileActivity.class));
 
+            }
+        });
+        purchaseTicket = (Button) findViewById(R.id.pay);
+        purchaseTicket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this, PurchaseActivity.class));
             }
         });
 
