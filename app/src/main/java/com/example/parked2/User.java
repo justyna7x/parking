@@ -1,21 +1,20 @@
 package com.example.parked2;
 
 public class User {
-    public String fullName, regPlate, email;
+    public String fullName, email;
     public float balance;
     //make user and ticket, both separate objects
-   //public Ticket ticket;
+   public Ticket tickets;
 
     public User(){
 
     }
 
-    public User(String fullName, String regPlate, String email, float balance /*Ticket ticket*/) {
+    public User(String fullName, String email, float balance, Ticket tickets) {
         this.fullName = fullName;
-        this.regPlate = regPlate;
         this.email = email;
         this.balance = balance;
-        //this.ticket=ticket;
+        this.tickets=tickets;
 
     }
 }

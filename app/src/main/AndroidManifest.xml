@@ -18,9 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Parked2">
+        <activity android:name=".ShowTickets"></activity>
         <activity android:name=".ShowSavedLocations" />
         <activity android:name=".MapsSettings" />
-        <activity android:name=".UpdateProfile" />
         <activity android:name=".PurchaseActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -48,6 +48,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".ReminderBroadcast" />
     </application>
 
 </manifest>

@@ -28,19 +28,41 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 public class MyProfile extends AppCompatActivity {
-    private Button updateProfile, homePage, logout, myProfile;
+    private Button updateProfile, homePage, logout, myProfile, setPassword, setFullName;
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
-    private ImageButton updateName, updateReg;
     private ActivityMyProfileBinding binding;
     private Button purchaseTicket;
+    private EditText editName, editPassword;
+    private FirebaseAuth mAuth;
+    private Button showTickets;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
+        mAuth = FirebaseAuth.getInstance();
+
+        editName = (EditText) findViewById(R.id.edit_name);
+        editPassword = (EditText) findViewById(R.id.password);
+        setFullName = (Button)findViewById(R.id.setNAme);
+        setFullName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                setNAme();
+            }
+        });
+
+        setPassword = (Button) findViewById(R.id.setPassword);
+        setPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updatePassword1();
+            }
+        });
 
         purchaseTicket = (Button) findViewById(R.id.pay);
         purchaseTicket.setOnClickListener(new View.OnClickListener() {
@@ -49,28 +71,14 @@ public class MyProfile extends AppCompatActivity {
                 startActivity(new Intent(MyProfile.this, PurchaseActivity.class));
             }
         });
-
-        updateName = (ImageButton) findViewById(R.id.editName);
-
-        updateName.setOnClickListener(new View.OnClickListener() {
+        showTickets = (Button) findViewById(R.id.past_tickets);
+        showTickets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder changeName = new AlertDialog.Builder(MyProfile.this);
-                changeName.setTitle("Please enter your name");
-                //TODO set up alert dialog to change the name and registration plate
-                //final EditText nameInput
-            }
-        });
-
-        updateProfile = (Button) findViewById(R.id.edit_profile);
-        updateProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MyProfile.this, UpdateProfile.class));
+                startActivity(new Intent(MyProfile.this, ShowTickets.class));
 
             }
         });
-
         homePage = (Button) findViewById(R.id.homePage);
         homePage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,8 +115,7 @@ public class MyProfile extends AppCompatActivity {
         final TextView greetingTextView = (TextView) findViewById(R.id.greeting);
         final TextView fullNameTextView = (TextView) findViewById(R.id.fullName);
         final TextView emailTextView = (TextView) findViewById(R.id.emailAddress);
-        final TextView regTextView = (TextView) findViewById(R.id.reg);
-        final TextView balance1 = (TextView) findViewById(R.id.balanceText);
+
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -118,15 +125,11 @@ public class MyProfile extends AppCompatActivity {
                 if (userProfile !=null){
                     String fullName = userProfile.fullName;
                     String email = userProfile.email;
-                    String reg = userProfile.regPlate;
-                    float balance2 = userProfile.balance;
-
 
                     greetingTextView.setText("Welcome, " + fullName+"!");
                     fullNameTextView.setText(fullName);
                     emailTextView.setText(email);
-                    regTextView.setText(reg);
-                    balance1.setText(String.valueOf(balance2));
+
                 }
 
             }
@@ -138,6 +141,41 @@ public class MyProfile extends AppCompatActivity {
             }
         });
     }
+
+    private void updatePassword1() {
+        String haslo = editPassword.getText().toString().trim();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user.updatePassword(haslo)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(MyProfile.this, "Password has been updated successfully", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+    }
+
+    private void setNAme() {String FullName = editName.getText().toString().trim();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        String userID = user.getUid();
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        FirebaseDatabase.getInstance().getReference("Users").child(userID).child("fullName").setValue(FullName).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(MyProfile.this, "Your name has been updated successfully", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(MyProfile.this, "Something went wrong! Try again", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
+
+    }
+
     private void updateData(String fullName) {
 
         HashMap User = new HashMap();

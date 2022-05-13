@@ -46,19 +46,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerDescription"
         />
-    <EditText
-        android:id="@+id/regPlate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Registration Plate"
-        android:inputType="text"
-        android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fullName"
-        />
+
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
@@ -70,7 +58,7 @@
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regPlate"
+        app:layout_constraintTop_toBottomOf="@+id/fullName"
         />
     <EditText
         android:id="@+id/password"

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PurchaseActivity">
+    tools:context=".ShowTickets">
     <ScrollView
-        android:id="@+id/scrollbarr"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
@@ -69,59 +69,5 @@
             </LinearLayout>
         </HorizontalScrollView>
     </ScrollView>
-
-
-    <EditText
-        android:id="@+id/zone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:hint="Zone (from A to L)"
-        android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollbarr"
-        />
-    <EditText
-        android:id="@+id/duration"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="Duration (from 1hour to 6 hours)"
-        android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/zone"
-        />
-    <EditText
-        android:id="@+id/regPlate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="Registration Plate Number of your car"
-        android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/duration"
-        />
-    <Button
-        android:id="@+id/buy"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="#005961"
-        android:text="BUY"
-        android:textColor="#ffffff"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/regPlate"
-        />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

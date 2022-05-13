@@ -21,9 +21,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-    private Button homePage, myProfile, settings, purchaseTicket;
+    private Button homePage, myProfile, settings, purchaseTicket, showTickets, logout;
     private GoogleMap mMap;
-    private Button logout;
+
 
 
     List<Location> savedLocations;
@@ -39,6 +39,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         ListOfPlaces listOfPlaces = (ListOfPlaces)getApplicationContext();
         savedLocations = listOfPlaces.getMyLocations();
+
+        showTickets = (Button) findViewById(R.id.past_tickets);
+        showTickets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MapsActivity.this, ShowTickets.class));
+
+            }
+        });
 
         purchaseTicket = (Button) findViewById(R.id.pay);
         purchaseTicket.setOnClickListener(new View.OnClickListener() {

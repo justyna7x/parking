@@ -112,16 +112,7 @@
         android:layout_marginTop="20dp"
         android:textSize="25sp"
         />
-        <ImageButton
-            android:id="@+id/editName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_edit"
-            app:layout_constraintRight_toLeftOf="@id/fullName"
-            app:layout_constraintTop_toBottomOf="@id/fullNameTitle"
-            android:backgroundTint="@color/white"
-            android:layout_marginTop="-5dp"
-            />
+
     <TextView
         android:id="@+id/fullName"
         android:layout_width="wrap_content"
@@ -131,69 +122,57 @@
         android:layout_marginLeft="30dp"
         android:textSize="25sp"
         />
-    <TextView
-        android:id="@+id/regTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registration Plate:"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/fullName"
-        app:layout_constraintLeft_toLeftOf="@id/fullNameTitle"
-        android:layout_marginTop="20dp"
-        android:textSize="25sp"
-        />
-    <ImageButton
-        android:id="@+id/editReg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_edit"
-        app:layout_constraintRight_toLeftOf="@id/reg"
-        app:layout_constraintTop_toBottomOf="@id/regTitle"
-        android:backgroundTint="@color/white"
-        android:layout_marginTop="-5dp"
-        />
-    <TextView
-        android:id="@+id/reg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/regTitle"
-        app:layout_constraintLeft_toLeftOf="@id/fullNameTitle"
-        android:layout_marginLeft="30dp"
-        android:textSize="25sp"
-        />
-    <TextView
-        android:id="@+id/balanceTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your balance:  £"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/reg"
-        app:layout_constraintLeft_toLeftOf="@id/fullNameTitle"
-        android:layout_marginTop="20dp"
-        android:textSize="25sp"
-        />
-    <TextView
-        android:id="@+id/balanceText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/balanceTitle"
-        app:layout_constraintLeft_toLeftOf="@id/fullNameTitle"
-        android:layout_marginLeft="30dp"
-        android:textSize="25sp"
-        />
     <Button
-        android:id="@+id/edit_profile"
-        android:layout_width="@dimen/browser_actions_context_menu_max_width"
-        android:layout_height="70dp"
-        android:layout_marginTop="100dp"
-        android:backgroundTint="#005961"
-        android:text="Edit Profile"
-        android:textColor="#ffffff"
-        android:textSize="40sp"
-        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setPassword"
+        android:text="Update Password"
+        app:layout_constraintTop_toBottomOf="@id/password"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/balanceText"
+        android:layout_marginTop="20dp"
+
+        ></Button>
+
+
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#005961"
+        android:hint="Update your name"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setPassword"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setNAme"
+        android:text="Update Full Name"
+        app:layout_constraintTop_toBottomOf="@id/edit_name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+
+        ></Button>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Reset your password"
+        android:inputType="textPassword"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullName"
         />
 
 

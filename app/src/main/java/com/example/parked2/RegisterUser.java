@@ -45,7 +45,6 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         registerUser.setOnClickListener(this);
 
         editTextFullName = (EditText) findViewById(R.id.fullName);
-        editTextregPlate = (EditText) findViewById(R.id.regPlate);
         editTextEmail = (EditText) findViewById(R.id.email);
         editTextPassword = (EditText) findViewById(R.id.password);
 
@@ -71,18 +70,12 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String fullName = editTextFullName.getText().toString().trim();
-        String regPlate = editTextregPlate.getText().toString().trim();
         float balance = 100;
-        Ticket ticket = null;
+        Ticket tickets = new Ticket("","","", "", "");
 
         if(fullName.isEmpty()){
             editTextFullName.setError("Full name is required!");
             editTextFullName.requestFocus();
-            return;
-        }
-        if(regPlate.isEmpty()){
-            editTextregPlate.setError("Registration plate is required!");
-            editTextregPlate.requestFocus();
             return;
         }
         if(email.isEmpty()){
@@ -113,7 +106,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if(task.isSuccessful()){
-                            User user = new User(fullName, regPlate, email, balance);
+                            User user = new User(fullName, email, balance, tickets);
 
 
                             //this is for the tickets

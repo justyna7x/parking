@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private Button homePage, logout, myProfile, mapsa;
+    private Button homePage, logout, myProfile, mapsa, showTickets;
     ExpandableListView expandableTextView;
     private Button purchaseTicket;
 
@@ -31,6 +31,14 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ProfileActivity.this, ProfileActivity.class));
+
+            }
+        });
+        showTickets = (Button) findViewById(R.id.past_tickets);
+        showTickets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this, ShowTickets.class));
 
             }
         });
