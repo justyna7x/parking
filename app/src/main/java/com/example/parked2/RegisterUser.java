@@ -17,7 +17,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.time.LocalDateTime;
 
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener {
 
@@ -69,6 +73,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         String fullName = editTextFullName.getText().toString().trim();
         String regPlate = editTextregPlate.getText().toString().trim();
         float balance = 100;
+        Ticket ticket = null;
 
         if(fullName.isEmpty()){
             editTextFullName.setError("Full name is required!");
@@ -109,6 +114,25 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
 
                         if(task.isSuccessful()){
                             User user = new User(fullName, regPlate, email, balance);
+
+
+                            //this is for the tickets
+                           /* String zone = "A";
+                            Integer durationHours = 2;
+                            String startTime = "2017-01-13T17:09:42.411";
+                            Ticket ticket = new Ticket(zone, durationHours, startTime);
+                            Ticket ticket1 = new Ticket(zone, durationHours, startTime);
+                            Ticket ticket2 = new Ticket(zone, durationHours, startTime);
+                            //user = FirebaseAuth.getInstance().getCurrentUser();
+                            String userID = user.getUid();
+
+                            DatabaseReference userReference = FirebaseDatabase.getInstance().getReference(userID);
+                            FirebaseDatabase.getInstance().getReference(userID).child("tickets").setValue(ticket);
+                            FirebaseDatabase.getInstance().getReference(userID).child("tickets").setValue(ticket1);
+                            FirebaseDatabase.getInstance().getReference(userID).child("tickets").setValue(ticket2);
+                            //user = FirebaseAuth.getInstance().getCurrentUser();*/
+
+
 
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

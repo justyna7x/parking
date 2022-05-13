@@ -27,7 +27,7 @@ import java.util.HashMap;
 public class UpdateProfile extends AppCompatActivity {
 
     private ActivityUpdateProfileBinding binding;
-    private Button homePage,logout, myProfile, purchaseTicket;
+    private Button homePage,logout, myProfile;
 
     private FirebaseUser user;
     private DatabaseReference reference;
@@ -51,14 +51,6 @@ public class UpdateProfile extends AppCompatActivity {
 
             }
         });
-        purchaseTicket = (Button) findViewById(R.id.pay);
-        purchaseTicket.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(UpdateProfile.this, PurchaseActivity.class));
-            }
-        });
-
 
         logout = (Button) findViewById(R.id.signOut);
         logout.setOnClickListener(new View.OnClickListener() {
