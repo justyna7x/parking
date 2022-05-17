@@ -19,8 +19,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -163,6 +166,8 @@ public class PurchaseActivity extends AppCompatActivity implements View.OnClickL
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     FirebaseDatabase.getInstance().getReference("Users").child("yE7bfAUWkcRDTyOqXgzQR3Pwvvg1").child("Tickets").child(uniqueKey).setValue(ticket);
+                    
+
                     Intent intent1 = new Intent(PurchaseActivity.this, ReminderBroadcast.class);
                     PendingIntent pendingIntent = PendingIntent.getBroadcast(PurchaseActivity.this, 0, intent1,0);
                     AlarmManager alarmManager =(AlarmManager) getSystemService(ALARM_SERVICE);

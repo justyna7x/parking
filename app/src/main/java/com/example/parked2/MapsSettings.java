@@ -100,7 +100,7 @@ public class MapsSettings extends AppCompatActivity {
         longitude = findViewById(R.id.longitude);
         accuracy = findViewById(R.id.accuracy);
         altitude = findViewById(R.id.altitude);
-        speed = findViewById(R.id.speed);
+        //speed = findViewById(R.id.speed);
         address = findViewById(R.id.address);
         zone = findViewById(R.id.zone);
         tv_sensor = findViewById(R.id.tv_sensor);
@@ -109,7 +109,7 @@ public class MapsSettings extends AppCompatActivity {
         sw_locationupdates = findViewById(R.id.sw_locationsupdates);
         btn_newWaypoint = findViewById(R.id.newPinpoint);
        // btn_showWayPointList = findViewById(R.id.listOfWaypoints);
-        tv_pinpointcounter = findViewById(R.id.mypinpoints);
+        //tv_pinpointcounter = findViewById(R.id.mypinpoints);
         viewMap =findViewById(R.id.viewMap);
 
         //properties for location request
@@ -140,6 +140,7 @@ public class MapsSettings extends AppCompatActivity {
                 ListOfPlaces listOfPlaces = (ListOfPlaces)getApplicationContext();
                 savedLocations = listOfPlaces.getMyLocations();
                 savedLocations.add(currentLocation);
+                Toast.makeText(MapsSettings.this, "Location saved", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -194,7 +195,7 @@ public class MapsSettings extends AppCompatActivity {
         tv_updates.setText("Location is NOT being tracked");
         latitude.setText("Not tracking location");
         longitude.setText("Not tracking location");
-        speed.setText("Not tracking location");
+        //speed.setText("Not tracking location");
         altitude.setText("Not tracking location");
         address.setText("Not tracking location");
         accuracy.setText("Not tracking location");
@@ -295,11 +296,11 @@ public class MapsSettings extends AppCompatActivity {
             altitude.setText("Not Available");
         }
 
-        if (location.hasSpeed()) {
+        /*if (location.hasSpeed()) {
             speed.setText(String.valueOf(location.getSpeed()));
         } else {
             speed.setText("Not Available");
-        }
+        }*/
 
         Geocoder geocoder = new Geocoder(MapsSettings.this);
 
@@ -355,7 +356,7 @@ public class MapsSettings extends AppCompatActivity {
         savedLocations = listOfPlaces.getMyLocations();
 
         //show number of waypoints saved
-        tv_pinpointcounter.setText(Integer.toString(savedLocations.size()));
+        //tv_pinpointcounter.setText(Integer.toString(savedLocations.size()));
     }
 
 }
