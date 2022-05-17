@@ -18,7 +18,7 @@ public class ShowSavedLocations extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_saved_locations);
 
-        lv_savedLocations = findViewById(R.id.list_pinpoints);
+        lv_savedLocations = findViewById(R.id.list_of_tickets);
 
         ListOfPlaces listOfPlaces = (ListOfPlaces)getApplicationContext();
         List<Location> savedLocations = listOfPlaces.getMyLocations();

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ShowTickets">
     <ScrollView
-
+        android:id ="@+id/scrollu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
@@ -69,5 +69,13 @@
             </LinearLayout>
         </HorizontalScrollView>
     </ScrollView>
+    <ListView
+        android:id="@+id/list_of_tickets"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

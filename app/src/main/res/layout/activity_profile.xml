@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
+    android:background="@drawable/background_pic2"
     >
 
     <ScrollView
@@ -76,7 +77,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
-
+        android:backgroundTint="@color/cardview_shadow_end_color"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="100dp"
         android:padding="5dp" />
@@ -88,6 +89,18 @@
         android:layout_width="@dimen/browser_actions_context_menu_max_width"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"/>
+    <Button
+        android:id="@+id/viewAllTickets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View all tickets"
+        android:layout_above="@id/view_zone"/>
+    <FrameLayout
+        android:id="@+id/pudelko"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        </FrameLayout>
 
 
 

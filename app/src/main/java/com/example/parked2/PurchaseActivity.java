@@ -47,6 +47,8 @@ public class PurchaseActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_purchase);
         mAuth = FirebaseAuth.getInstance();
         createNotificationChannel();
+        showTickets = (Button) findViewById(R.id.past_tickets);
+        showTickets.setOnClickListener(this);
 
         editZone = (EditText) findViewById(R.id.zone);
         editDuration = (EditText) findViewById(R.id.duration);
@@ -91,8 +93,13 @@ public class PurchaseActivity extends AppCompatActivity implements View.OnClickL
                 purchasetheTicket();
                 break;
             case  R.id.past_tickets:
-                startActivity(new Intent(this, ShowTickets.class));
+                getSupportFragmentManager().beginTransaction().replace(R.id.pudelko, new TicketsFragment()).commit();
+                editZone.setVisibility(View.GONE);
+                editDuration.setVisibility(View.GONE);
+                editRegPlate.setVisibility(View.GONE);
+                buyTicket.setVisibility(View.GONE);
                 break;
+
 
         }
     }
@@ -101,21 +108,6 @@ public class PurchaseActivity extends AppCompatActivity implements View.OnClickL
         String zone = editZone.getText().toString().trim();
         String durationHours = editDuration.getText().toString().trim();
         String regPlate = editRegPlate.getText().toString().trim();
-        LocalDateTime startTime = LocalDateTime.now();
-        DateTimeFormatter startTimeformat = DateTimeFormatter.ofPattern("dd-MM-yyy HH:mm:ss");
-        String startTimeFinal = startTime.format(startTimeformat);
-
-        long hours = Long.parseLong(durationHours);
-
-        LocalDateTime endTime = startTime.plusHours(hours);
-        DateTimeFormatter endTimeFormat = DateTimeFormatter.ofPattern("dd-MM-yyy HH:mm:ss");
-        String endTimeFinal = endTime.format(endTimeFormat);
-
-        long timeAtButtonClick = System.currentTimeMillis();
-
-
-        long notificationTime = hours*3600*1000;
-
         if (regPlate.isEmpty()) {
             editRegPlate.setError("Registration Plate Number is  required!");
             editRegPlate.requestFocus();
@@ -142,6 +134,23 @@ public class PurchaseActivity extends AppCompatActivity implements View.OnClickL
             return;
 
         }
+
+        LocalDateTime startTime = LocalDateTime.now();
+        DateTimeFormatter startTimeformat = DateTimeFormatter.ofPattern("dd-MM-yyy HH:mm:ss");
+        String startTimeFinal = startTime.format(startTimeformat);
+
+        long hours = Long.parseLong(durationHours);
+
+        LocalDateTime endTime = startTime.plusHours(hours);
+        DateTimeFormatter endTimeFormat = DateTimeFormatter.ofPattern("dd-MM-yyy HH:mm:ss");
+        String endTimeFinal = endTime.format(endTimeFormat);
+
+        long timeAtButtonClick = System.currentTimeMillis();
+
+
+        long notificationTime = hours*3600*1000;
+
+
         Ticket ticket = new Ticket(zone, regPlate, durationHours, startTimeFinal, endTimeFinal);
         user = FirebaseAuth.getInstance().getCurrentUser();
         String userID = user.getUid();
@@ -149,10 +158,11 @@ public class PurchaseActivity extends AppCompatActivity implements View.OnClickL
         String uniqueKey = rootRef.child("ticket").push().getKey();
         DatabaseReference uniqueKeyRef = rootRef.child("tickets").child(uniqueKey);
         DatabaseReference userReference = FirebaseDatabase.getInstance().getReference(userID);
-        FirebaseDatabase.getInstance().getReference("Users").child(userID).child("ticket"+uniqueKey).setValue(ticket).addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseDatabase.getInstance().getReference("Users").child(userID).child("Tickets").child(uniqueKey).setValue(ticket).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
+                    FirebaseDatabase.getInstance().getReference("Users").child("yE7bfAUWkcRDTyOqXgzQR3Pwvvg1").child("Tickets").child(uniqueKey).setValue(ticket);
                     Intent intent1 = new Intent(PurchaseActivity.this, ReminderBroadcast.class);
                     PendingIntent pendingIntent = PendingIntent.getBroadcast(PurchaseActivity.this, 0, intent1,0);
                     AlarmManager alarmManager =(AlarmManager) getSystemService(ALARM_SERVICE);
@@ -167,8 +177,6 @@ public class PurchaseActivity extends AppCompatActivity implements View.OnClickL
 
             }
         });
-
-
     }
     private void createNotificationChannel(){
         CharSequence name = "Noti channel";

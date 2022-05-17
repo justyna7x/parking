@@ -44,7 +44,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         showTickets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MapsActivity.this, ShowTickets.class));
+                getSupportFragmentManager().beginTransaction().replace(R.id.pudelko, new TicketsFragment()).commit();
+                mapFragment.getView().setVisibility(View.INVISIBLE);
 
             }
         });

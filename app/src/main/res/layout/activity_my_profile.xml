@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/emailAddressTitle"
         app:layout_constraintLeft_toLeftOf="@id/emailAddressTitle"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="25dp"
         android:textSize="25sp"
         />
 
@@ -119,7 +119,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/fullNameTitle"
         app:layout_constraintLeft_toLeftOf="@id/emailAddressTitle"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="25dp"
         android:textSize="25sp"
         />
     <Button
@@ -175,7 +175,12 @@
         app:layout_constraintTop_toBottomOf="@+id/fullName"
         />
 
+    <FrameLayout
+        android:id="@+id/pudelko"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+    </FrameLayout>
 
 
 

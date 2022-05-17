@@ -8,18 +8,46 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 
+
+
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private Button homePage, logout, myProfile, mapsa, showTickets;
+    private Button homePage, logout, myProfile, mapsa, showTickets, viewAllTickets;
     ExpandableListView expandableTextView;
     private Button purchaseTicket;
+    private FirebaseAuth mAuth;
+    private FirebaseUser user;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        userID = user.getUid();
+
+       // getSupportFragmentManager().beginTransaction().add(R.id.pudelko, new TicketsFragment());
+
+        viewAllTickets=findViewById(R.id.viewAllTickets);
+        viewAllTickets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.pudelko, new AllTheTickets()).commit();
+                expandableTextView.setVisibility(View.GONE);
+                viewAllTickets.setVisibility(View.GONE);
+
+
+            }
+        });
+
+        if(!userID.equals("yE7bfAUWkcRDTyOqXgzQR3Pwvvg1")){
+            viewAllTickets.setVisibility(View.GONE);
+
+        }
 
         expandableTextView=findViewById(R.id.eTV);
         ExpandableTextViewAdapter adapter = new ExpandableTextViewAdapter(ProfileActivity.this);
@@ -32,13 +60,21 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(ProfileActivity.this, ProfileActivity.class));
 
+
             }
         });
         showTickets = (Button) findViewById(R.id.past_tickets);
         showTickets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, ShowTickets.class));
+                getSupportFragmentManager().beginTransaction().replace(R.id.pudelko, new TicketsFragment()).commit();
+                expandableTextView.setVisibility(View.GONE);
+                /*mapsa.setVisibility(View.GONE);
+                purchaseTicket.setVisibility(View.GONE);
+                logout.setVisibility(View.GONE);
+                myProfile.setVisibility(View.GONE);
+                showTickets.setVisibility(View.GONE);
+                homePage.setVisibility(View.GONE);*/
 
             }
         });

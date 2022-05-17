@@ -38,6 +38,7 @@
                     android:text="Home Page"
                     android:background="@drawable/angular_button"
                     android:layout_weight="1"
+                    android:backgroundTint="#005961"
                     />
                 <Button
                     android:id="@+id/myProfile"
@@ -47,6 +48,7 @@
                     android:text="My Profile"
                     android:background="@drawable/angular_button"
                     android:layout_weight="1"
+                    android:backgroundTint="#005961"
                     />
 
                 <Button
@@ -56,7 +58,8 @@
                     android:layout_weight="1"
                     android:background="@drawable/angular_button"
                     android:drawableTop="@drawable/ic_pay"
-                    android:text="Pay for space" />
+                    android:text="Pay for space"
+                    android:backgroundTint="#005961"/>
 
                 <Button
                     android:text="Your tickets"
@@ -66,6 +69,7 @@
                     android:id="@+id/past_tickets"
                     android:background="@drawable/angular_button"
                     android:layout_weight="1"
+                    android:backgroundTint="#005961"
                     />
                 <Button
                     android:text="Sign out"
@@ -75,6 +79,7 @@
                     android:id="@+id/signOut"
                     android:background="@drawable/angular_button"
                     android:layout_weight="1"
+                    android:backgroundTint="#005961"
                     />
 
             </LinearLayout>
@@ -86,5 +91,12 @@
         android:textSize="30dp"
         android:layout_width="@dimen/browser_actions_context_menu_max_width"
         android:layout_height="100dp"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="#005961"/>
+    <FrameLayout
+        android:id="@+id/pudelko"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
 </RelativeLayout>
