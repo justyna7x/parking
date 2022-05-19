@@ -1,22 +1,17 @@
 package com.example.parked2;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.parked2.databinding.ActivityMyProfileBinding;
-import com.example.parked2.databinding.ActivityUpdateProfileBinding;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,8 +21,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.HashMap;
 
 public class MyProfile extends AppCompatActivity implements View.OnClickListener{
     private Button homePage, logout, myProfile, setPassword, setFullName, showTickets, purchaseTicket;
@@ -92,12 +85,8 @@ public class MyProfile extends AppCompatActivity implements View.OnClickListener
                     emailTextView.setText(email);
 
                 }
-                if (userID.equals("yE7bfAUWkcRDTyOqXgzQR3Pwvvg1")){
-                    editName.setVisibility(View.GONE);
-                    editPassword.setVisibility(View.GONE);
-                    setFullName.setVisibility(View.GONE);
-                    setPassword.setVisibility(View.GONE);
-                }
+
+
                else  {
                     FirebaseUser firebaseUser = mAuth.getCurrentUser();
                     String personName = firebaseUser.getDisplayName();
@@ -111,7 +100,11 @@ public class MyProfile extends AppCompatActivity implements View.OnClickListener
                     setPassword.setVisibility(View.GONE);
 
 
-                }
+                }if (userID.equals("yE7bfAUWkcRDTyOqXgzQR3Pwvvg1")){
+                    editName.setVisibility(View.GONE);
+                    editPassword.setVisibility(View.GONE);
+                    setFullName.setVisibility(View.GONE);
+                    setPassword.setVisibility(View.GONE);}
                 }
             
 
